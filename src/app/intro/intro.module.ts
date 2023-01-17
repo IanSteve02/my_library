@@ -13,7 +13,8 @@ import { IntroPage } from './intro.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    IntroPageRoutingModule
+    IntroPageRoutingModule,
+  
   ],
   declarations: [IntroPage]
 })
