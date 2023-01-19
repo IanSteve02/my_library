@@ -1,3 +1,8 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center ion-text-uppercase "> Bienvenido a mi biblioteca </ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
 
@@ -51,4 +56,5 @@ shape="round">
 </ion-button>
 
   </form>
+  {{ errorMessage }}
 </ion-content>

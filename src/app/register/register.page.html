@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="goToLogin()">
+      <ion-button>
+        Regresar
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center ion-text-uppercase">Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <figure class="size-logo">
+    <img src="https://lh6.googleusercontent.com/i0f_aqknW090WHCkjrPzU1aQTRcs3y72dxmBMwQTqig2wkH9xaYbvnfaPy428YN0kjepl6ULkoVUaf1vYSykEOf0B5vDo2ndlrD4kWlwJE6XGNFgdwRSDSG1CQspl6IQmxpXoLm6" />
+  </figure>
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input placeholder="Ingresa tu primer nombre" formControlName="name"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input placeholder="Ingresa tu primer apellido" formControlName="last_name"></ion-input>
+    </ion-item>
+    
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Tipo documento</ion-label>
+        <ion-select placeholder="Selecione el tipo de documento" formControlName="document_type">
+          <ion-select-option value="Cedula">Cedula</ion-select-option>
+          <ion-select-option value="Cedula Extranjera">Cedula Extranjera</ion-select-option>
+          <ion-select-option value="Nit">Nit</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    
+    <ion-item>
+      <ion-label position="floating">Numero documento</ion-label>
+      <ion-input placeholder="Ingresa tu numero de documento" formControlName="document_number"> </ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Carrera</ion-label>
+      <ion-input placeholder="Ingresa tu carrera" formControlName="career"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input placeholder="Ingresa tu email" formControlName="email"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input placeholder="Ingresa tu contraseña" formControlName="password" type="password"></ion-input>
+    </ion-item>
+  
+    <ion-button 
+  shape="round"
+  type="submit">
+    Registrarse
+  </ion-button>
+  
+  </form>
+  
+  
+  </ion-content>
+  
