@@ -69,10 +69,14 @@ export class LoginPage implements OnInit {
      this.authenticate.loginUser(Credentials).then( res => {
       this.errorMessage ="";
       this.storage.set("login",true);
-      this.navCtrl.navigateForward("/home")
+      this.navCtrl.navigateForward("/menu/home")
      }).catch(err =>{
       this.errorMessage = err
      })
+    }
+
+    goToRegister(){
+      this.navCtrl.navigateForward("/register")
     }
   
 }
