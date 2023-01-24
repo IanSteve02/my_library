@@ -9,17 +9,24 @@ export class AuthenticateService {
 
   loginUser(credentials: any){
     return new Promise((accept, reject) =>{
-      if ( credentials.email == "ianmiranda02@gmail.com" && credentials.password == "Ian020903")
+      const LoginData = this.getRegUser();
+      LoginData.then(log => {
+        if ( atob(log.password) == credentials.password && log.email == credentials.email)
       {
         accept("Login Exitoso");
       } else {
         reject("Login Fallido");
       }
+      })
     });
   }
 
   registerUser(userData: any){
     userData.password = btoa(userData.password);
     return this.storage.set("user",userData);
+  }
+
+  getRegUser(){
+    return this.storage.get("user")
   }
 }
