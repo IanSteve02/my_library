@@ -15,18 +15,18 @@
   </figure>
   <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
     <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
+      <ion-label position="floating">NOMBRE</ion-label>
       <ion-input placeholder="Ingresa tu primer nombre" formControlName="name"></ion-input>
     </ion-item>
     
     <ion-item>
-      <ion-label position="floating">Apellido</ion-label>
+      <ion-label position="floating">APELLIDO</ion-label>
       <ion-input placeholder="Ingresa tu primer apellido" formControlName="last_name"></ion-input>
     </ion-item>
     
     <ion-list>
       <ion-item>
-        <ion-label position="floating">Tipo documento</ion-label>
+        <ion-label position="floating">TIPO DOCUMENTO</ion-label>
         <ion-select placeholder="Selecione el tipo de documento" formControlName="document_type">
           <ion-select-option value="Cedula">Cedula</ion-select-option>
           <ion-select-option value="Cedula Extranjera">Cedula Extranjera</ion-select-option>
@@ -36,13 +36,13 @@
     </ion-list>
     
     <ion-item>
-      <ion-label position="floating">Numero documento</ion-label>
+      <ion-label position="floating">NUMERO DOCUMENTO</ion-label>
       <ion-input placeholder="Ingresa tu numero de documento" formControlName="document_number"> </ion-input>
     </ion-item>
     
     <ion-list>
       <ion-item>
-        <ion-label position="floating">Carrera</ion-label>
+        <ion-label position="floating">INGENIERIA</ion-label>
         <ion-select placeholder="Selecione su carrera" formControlName="career">
           <ion-select-option value="Ing sistemas">Ing sistemas</ion-select-option>
           <ion-select-option value="Ing civil">Ing civil</ion-select-option>
@@ -53,12 +53,12 @@
     </ion-list>
     
     <ion-item>
-      <ion-label position="floating">Email</ion-label>
+      <ion-label position="floating">EMAIL</ion-label>
       <ion-input placeholder="Ingresa tu email" formControlName="email"></ion-input>
     </ion-item>
     
     <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
+      <ion-label position="floating">CONTRASEÑA</ion-label>
       <ion-input placeholder="Ingresa tu contraseña" formControlName="password" type="password"></ion-input>
     </ion-item>
   

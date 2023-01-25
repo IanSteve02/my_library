@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { LibraryService } from '../services/library.service';
+import { BooksModalPage } from '../books-modal/books-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { LibraryService } from '../services/library.service';
 })
 export class HomePage {
   authors: any;
+  booksOff: any;
 
   slideOps = {
     initialSlide: 2,
@@ -17,7 +19,7 @@ export class HomePage {
     speed: 400
   }
  
-  constructor(private navCtrl: NavController, private libraryService: LibraryService) {}
+  constructor(private navCtrl: NavController, private libraryService: LibraryService, private modalController: ModalController) {}
  
   goTointro(){
     this.navCtrl.navigateForward('/intro');
@@ -25,9 +27,22 @@ export class HomePage {
 
   ionViewDidEnter(){
     this.libraryService.getAuthors().then( res => {
-      this.authors = res.data;
+      this.authors = res
       console.log(this.authors)
     })
+
+    this.booksOff = this.libraryService.getBooksOffline();
+    console.log(this.booksOff.books)
+  }
+
+  async showBooks(author: any){
+        const modal = await this.modalController.create({
+        component: BooksModalPage,
+        componentProps: {
+        author: author
+        }
+     })
+     return await modal.present();
   }
 
 }
