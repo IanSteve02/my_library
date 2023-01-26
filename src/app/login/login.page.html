@@ -30,13 +30,6 @@
   </ng-container>
 </div>
 
-<div>
-  <ng-container *ngFor="let validation of validation_message.number">
-    <div *ngIf="(loginForm.get('number')?.hasError(validation.type) && loginForm.get('number')?.dirty)">
-      {{validation.message}}
-    </div>    
-  </ng-container>
-</div>
 
 <ion-button
 shape="round"

@@ -8,3 +8,33 @@ ion-avatar img {
     width: 90px;
     height: 90px;
 }
+
+ion-card {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+ion-card ion-card-header {
+    padding: 10px 10px;
+}
+
+ion-card ion-card-content {
+    padding: 10px 10px;
+}
+
+ion-card ion-card-title {
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+ion-card ion-card-content {
+    font-size: .8em;
+    text-transform: lowercase;
+}
+
+ion-icon{
+    width: 90px;
+    height: 40px;
+    
+}

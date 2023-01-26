@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
+import { MenuController, ModalController, NavController } from '@ionic/angular';
 import { LibraryService } from '../services/library.service';
 import { BooksModalPage } from '../books-modal/books-modal.page';
 
@@ -19,7 +19,7 @@ export class HomePage {
     speed: 400
   }
  
-  constructor(private navCtrl: NavController, private libraryService: LibraryService, private modalController: ModalController) {}
+  constructor(private navCtrl: NavController, private libraryService: LibraryService, private modalController: ModalController, private menu: MenuController) {}
  
   goTointro(){
     this.navCtrl.navigateForward('/intro');
@@ -43,6 +43,16 @@ export class HomePage {
         }
      })
      return await modal.present();
+  }
+
+  goToAuthors(){
+    this.navCtrl.navigateForward("/menu/authors");
+    this.menu.close();
+  }
+
+  goToBooks(){
+    this.navCtrl.navigateRoot("/menu/books")
+    this.menu.close();
   }
 
 }

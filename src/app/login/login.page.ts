@@ -52,13 +52,6 @@ export class LoginPage implements OnInit {
         ])
       ),
 
-      number: new FormControl(
-        "",
-        Validators.compose([
-          Validators.required,
-          Validators.maxLength(10)
-        ])
-      )
     });
   }
 
