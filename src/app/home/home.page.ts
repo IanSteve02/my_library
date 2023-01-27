@@ -51,7 +51,12 @@ export class HomePage {
   }
 
   goToBooks(){
-    this.navCtrl.navigateRoot("/menu/books")
+    this.navCtrl.navigateForward("/menu/books")
+    this.menu.close();
+  }
+
+  goToMyFavorites(){
+    this.navCtrl.navigateForward("/menu/favorite-books")
     this.menu.close();
   }
 

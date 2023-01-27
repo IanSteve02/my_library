@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authenticate.service';
 import { Storage } from '@ionic/storage-angular';
 @Component({
@@ -20,12 +20,8 @@ export class LoginPage implements OnInit {
     password: [
       {type: "required", message: "LA CONTRASEÑA ES OBLIGATORIA"},
       {type: "minLength", message: "El numero de caracteres es incorrecto"}
-    ],
-
-    number: [
-      {type: "required", message: "EL CELULAR ES OBLIGATORIO"},
-      {type: "maxLength", message: "El numero de celular es incorrecto"}
     ]
+
   }
 
   errorMessage: any;
@@ -33,7 +29,8 @@ export class LoginPage implements OnInit {
   constructor(private formBuilder: FormBuilder, 
     private authenticate: AuthenticateService,
     private navCtrl: NavController,
-    private storage: Storage) { 
+    private storage: Storage,
+    private alertController: AlertController) { 
 
 
     this.loginForm = this.formBuilder.group({
@@ -57,15 +54,28 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+
+  async presentAlert(header: any, subHeader: any, message: any ){
+    const alert = await this.alertController.create(
+      {
+        header: header,
+        subHeader: subHeader,
+        message: message,
+        buttons: ["Ok"]
+      }
+    );
+    await alert.present();
+  }
+  
   loginUser(Credentials: any){
      console.log(Credentials);
-     this.authenticate.loginUser(Credentials).then( res => {
-      this.errorMessage ="";
+     this.authenticate.loginUser(Credentials).then( (res: any) => {
       this.storage.set("login",true);
-      this.navCtrl.navigateForward("/menu/home")
+      this.storage.set("user_id", res.user.id)
+      this.navCtrl.navigateForward("/menu/home");
      }).catch(err =>{
       this.errorMessage = err
-     })
+     });
     }
 
     goToRegister(){

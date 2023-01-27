@@ -22,7 +22,7 @@ export class MenuPage implements OnInit {
   }
 
   goToAuthors(){
-    this.navCtrl.navigateForward("/menu/authors");
+    this.navCtrl.navigateRoot("/menu/authors");
     this.menu.close();
   }
 
@@ -33,6 +33,11 @@ export class MenuPage implements OnInit {
 
   goToBooks(){
     this.navCtrl.navigateRoot("/menu/books")
+    this.menu.close();
+  }
+
+  goToMyFavorites(){
+    this.navCtrl.navigateRoot("/menu/favorite-books")
     this.menu.close();
   }
 
