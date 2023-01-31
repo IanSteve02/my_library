@@ -7,7 +7,7 @@ import { LibraryService } from '../services/library.service';
   styleUrls: ['./topbooks.page.scss'],
 })
 export class TopbooksPage implements OnInit {
-  TopBooks: any;
+  topBooks: any;
 
   constructor(
     private libraryService: LibraryService
@@ -17,12 +17,12 @@ export class TopbooksPage implements OnInit {
   }
 
   ionViewWillEnter(){
-    this.GetTopBooks();
+    this.getTopBooks();
   }
 
-  GetTopBooks(){
-    this.libraryService.GetTopBooks().then((data:any) => {
-      this.GetTopBooks =  data 
+  getTopBooks(){
+    this.libraryService.getTopBooks().then((data:any) => {
+      this.topBooks = data 
       console.log(data)
     })
   }

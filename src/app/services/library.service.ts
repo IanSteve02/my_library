@@ -6,6 +6,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LibraryService {
+  topBooks() {
+    throw new Error('Method not implemented.');
+  }
   getListBooks() {
     throw new Error('Method not implemented.');
   }
@@ -74,7 +77,7 @@ export class LibraryService {
     );
   }
 
-  GetTopBooks(){
+  getTopBooks(){
     return fetch(`https://librarypca.fly.dev/top_books`).then(list => list.json())
   }
 }
