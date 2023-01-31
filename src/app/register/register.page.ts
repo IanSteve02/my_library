@@ -80,9 +80,11 @@ export class RegisterPage implements OnInit {
 
   registerUser(register_form: any){
     console.log(register_form)
-    this.authenticate.registerUser(register_form).then( res =>{
+    this.authenticate.regUser(register_form).then( res =>{
       this.navCtrl.navigateForward("/login");
     }).catch(err => {
+
+      this.presentAlert("upp", "hubo un error",err)  
 
     })
   }
@@ -98,5 +100,7 @@ export class RegisterPage implements OnInit {
       );
       await alert.present();
     }
+
+    
 
 }

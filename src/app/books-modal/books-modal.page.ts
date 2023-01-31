@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
+import { LibraryService } from '../services/library.service';
+
 
 @Component({
   selector: 'app-books-modal',
@@ -9,10 +11,14 @@ import { ModalController, NavParams } from '@ionic/angular';
 export class BooksModalPage implements OnInit {
 
   author: any;
+  books: any;
 
-  constructor(private navParams: NavParams, private modalController: ModalController) { }
+  constructor(private navParams: NavParams, private modalController: ModalController, private libraryService: LibraryService) { }
 
   ngOnInit() {
+    this.libraryService.getBooksAuthor(this.author.id).then(books =>{
+      this.books = books
+    })
   }
 
   ionViewDidEnter(){

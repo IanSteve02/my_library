@@ -19,9 +19,10 @@ export class AuthenticateService {
       let params = {
         "user": credentials
       }
+      console.log(params)
       this.http.post(`${this.urlServer}login`,params, this.HttpHeaders).subscribe ((data:any) => {
         if (data.status == "OK"){
-          accept(data.msg);
+          accept(data);
         }else{
           reject(data.errors)
         }

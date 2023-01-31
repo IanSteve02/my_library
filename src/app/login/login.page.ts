@@ -67,10 +67,11 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
   
-  loginUser(Credentials: any){
-     console.log(Credentials);
-     this.authenticate.loginUser(Credentials).then( (res: any) => {
-      this.storage.set("login",true);
+  loginUser(credentials: any){
+     console.log(credentials);
+     this.authenticate.loginUser(credentials).then( (res: any) => {
+      this.storage.set("isUserLoggedIn",true);
+      console.log(res, "Respuesta del usuario")
       this.storage.set("user_id", res.user.id)
       this.navCtrl.navigateForward("/menu/home");
      }).catch(err =>{

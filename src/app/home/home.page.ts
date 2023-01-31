@@ -60,4 +60,9 @@ export class HomePage {
     this.menu.close();
   }
 
+  goTopBooks(){
+    this.navCtrl.navigateForward("/menu/topbooks")
+    this.menu.close();
+  }
+
 }

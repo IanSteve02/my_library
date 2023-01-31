@@ -7,6 +7,7 @@ import { MenuController, NavController } from '@ionic/angular';
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
+  storage: any;
 
   constructor(private menu: MenuController, private navCtrl: NavController) { }
 
@@ -18,6 +19,8 @@ export class MenuPage implements OnInit {
   }
 
   logout(){
+    this.storage.set("isUserLoggedIn", false);
+    this.storage.remove("user_id");
     this.navCtrl.navigateRoot("/login");
   }
 
@@ -41,4 +44,8 @@ export class MenuPage implements OnInit {
     this.menu.close();
   }
 
+  goTopBooks(){
+    this.navCtrl.navigateForward("/menu/topbooks")
+    this.menu.close();
+  }
 }
