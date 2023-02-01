@@ -10,13 +10,14 @@ ion-avatar img {
 }
 
 ion-card {
-    background-color: rgb(255, 77, 1);
+    background-color: #ff8001;
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
 ion-card ion-card-header {
+    
     padding: 10px 10px;
 }
 
@@ -30,6 +31,7 @@ ion-card ion-card-title {
 }
 
 ion-card ion-card-content {
+    
     font-size: .8em;
     text-transform: lowercase;
 }
