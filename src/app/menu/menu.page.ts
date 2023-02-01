@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,8 @@ import { MenuController, NavController } from '@ionic/angular';
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
-  storage: any;
-
-  constructor(private menu: MenuController, private navCtrl: NavController) { }
+  
+  constructor(private menu: MenuController, private navCtrl: NavController, private storage: Storage) { }
 
   ngOnInit() {
   }
@@ -19,7 +19,7 @@ export class MenuPage implements OnInit {
   }
 
   logout(){
-    this.storage.set("isUserLoggedIn", false);
+    this.storage.set("isUserLoggedIn", true);
     this.storage.remove("user_id");
     this.navCtrl.navigateRoot("/login");
   }

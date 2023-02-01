@@ -35,7 +35,12 @@ export class RegisterPage implements OnInit {
         ])
       ),
 
-      document_type: new FormControl(),
+      document_type: new FormControl(
+        "",
+        Validators.compose([
+          Validators.required,
+        ])
+      ),
 
       document_number: new FormControl(
         "",
